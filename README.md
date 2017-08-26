@@ -17,7 +17,7 @@ Enjoy! Let me know what you think, or if you have any suggestions!
 Maka
 
 
-## Update 2.6.19
+## Update 2.6.20
 FYI, just fixed that Windows bug so the templates load now...what a pain that was!
 
 ## Update 2.6.10
