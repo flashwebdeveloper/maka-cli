@@ -7,7 +7,7 @@ Maka is a command line scaffolding tool for Meteor applications.
 
 It automatically creates project structure, files and boilerplate code.  You may use maka where ever you use meteor.
 
-Maka works great on OSX, Linux, and Windows.
+Maka works great on OSX and Linux...not so much on Windows.
 
 All the Meteor 1.3 style templates have been updated with JSDoc tags. This includes the api, ui, routes, and some others.  So if you start a new project with maka, you'll get documentation right from the get go!  Otherwise you'll have to enjoy the new JSDoc comments on newly generated files.
 
@@ -17,17 +17,34 @@ Enjoy! Let me know what you think, or if you have any suggestions!
 Maka
 
 
-## Update 2.6.0
-Hey evryone!  I noticed React Router v4 was causing some problems, so I clamped react-router @ 3.0.2 for the time being.  Once they
-figure that out, I'll have maka go up to v4.
 
-But that's not the main topic!  I've revamped the testing for React clients, using React's Testing Utilities, shallowDOM, detached DOM
-and Simulator. 
 
-Heads up as well, I'm in the process of two big moves.  1) Set React as the default client engine over Blaze.  2) I've been working to
-get GraphQl as a scaffolded command.  Soon(TM) you'll be able to initialize a client/server GraphQL, Apollo style.  You'll also be able to scaffold out all your resolvers and schemas.  GraphQL is pretty sweet, but it is complicated to get setup.  The work that the Apollo team is doing is making it a lot better, and soon with Meteor 1.5 I should be about ready to update Maka-Cli to take full advantage of Apollo and GraphQL.
+## Update 2.6.8
+Hey evryone!  
 
-Until next time, happy coding!
+So, yes I've been away for a while.  Changed jobs, the old place made it pretty hard to work there... boo.  Had a new baby... yay!
+
+I've been playing around with GraphQL a lot and specifically Apollo.  It's freaking awesome.  I've also been making all my apps with React which has also been freaking awesome.
+
+So in the spirit of being awesome, I'm going to go ahead and make the leap to defaulting meteor apps to the react client. This can be overridden by supplying `--client=blaze` when creating your app or modifying the config in `.maka`.
+
+For a very soon upcoming release I'm also going to be setting up the Apollo client by default and getting that configured out for you, with samples in the client.  It can be skipped if you  REALLY don't want all of it's glory.
+
+As far as the apollo server, I've been running that separately mainly for logistics and performance...but I have setup a "all in one" meteor app that does host a graphql server which I guess would be great for prototyping but I'm skeptical on how it would do in production.
+
+To summarize:
+
+Now:
+    Default client to React.
+
+Soon(tm):
+    Implement Apollo (GraphQL) client scaffolding.
+
+Soon-ish:
+    Implement Apollo (GrahQL) server scaffolding.
+
+
+I highly recommend checking out what our MDG gods have been doing with Apollo [here](http://dev.apollodata.com)
 
 
 --

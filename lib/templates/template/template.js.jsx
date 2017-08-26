@@ -1,7 +1,6 @@
-import './<%= fileName %>.css';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 /**
  * @namespace Client.Component.<%= className %>Component
