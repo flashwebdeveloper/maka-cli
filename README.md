@@ -7,7 +7,7 @@ Maka is a command line scaffolding tool for Meteor applications.
 
 It automatically creates project structure, files and boilerplate code.  You may use maka where ever you use meteor.
 
-Maka works great on OSX and Linux...not so much on Windows.
+Maka works great on OSX and Linux... and now much better on Windows.
 
 All the Meteor 1.3 style templates have been updated with JSDoc tags. This includes the api, ui, routes, and some others.  So if you start a new project with maka, you'll get documentation right from the get go!  Otherwise you'll have to enjoy the new JSDoc comments on newly generated files.
 
@@ -17,7 +17,8 @@ Enjoy! Let me know what you think, or if you have any suggestions!
 Maka
 
 
-
+## Update 2.6.19
+FYI, just fixed that Windows bug so the templates load now...what a pain that was!
 
 ## Update 2.6.10
 Hey evryone!  
