@@ -1,5 +1,6 @@
-#maka
+# maka
 ###### Subscribe on twitter for latest @maka_cli announcements!
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CQ2NZZELXC292)
 
 Meteor Apps Kick Ass! (maka) 
 
