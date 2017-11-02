@@ -17,37 +17,29 @@ Enjoy! Let me know what you think, or if you have any suggestions!
 --
 Maka
 
+### Update 2.7.0
+I'm please to announce that maka-cli now supports the scaffolding of GraphQL resources!  This only applies to new projects (why would you try to cram graphql into an existing project... yuck!) and can be invoked during creation:
 
-## Update 2.6.20
-FYI, just fixed that Windows bug so the templates load now...what a pain that was!
+```
+$ maka create GraphQLApp --graphql=apollo
+```
 
-## Update 2.6.10
-Hey everyone!  
+Now, there are no API resources available so the GraphQL server won't be running yet.  You'll need to create an API resource first:
 
-So, yes I've been away for a while.  Changed jobs, the old place made it pretty hard to work there... boo.  Had a new baby... yay!
+```
+$ maka g:api boats
+```
 
-I've been playing around with GraphQL a lot and specifically Apollo.  It's freaking awesome.  I've also been making all my apps with React which has also been freaking awesome.
+Now, run ``` $ maka ``` and open up Chrome to localhost:3000/graphiql (Safari has a bug with this, so use Chrome) and issue the query:
+```
+    query {
+        boats
+    }
+```
 
-So in the spirit of being awesome, I'm going to go ahead and make the leap to defaulting meteor apps to the react client. This can be overridden by supplying `--client=blaze` when creating your app or modifying the config in `.maka`.
+Poof! "hello boats" should appear!
 
-For a very soon upcoming release I'm also going to be setting up the Apollo client by default and getting that configured out for you, with samples in the client.  It can be skipped if you  REALLY don't want all of it's glory.
-
-As far as the apollo server, I've been running that separately mainly for logistics and performance...but I have setup a "all in one" meteor app that does host a graphql server which I guess would be great for prototyping but I'm skeptical on how it would do in production.
-
-To summarize:
-
-Now:
-    Default client to React.
-
-Soon(tm):
-    Implement Apollo (GraphQL) client scaffolding.
-
-Soon-ish:
-    Implement Apollo (GrahQL) server scaffolding.
-
-
-I highly recommend checking out what our MDG gods have been doing with Apollo [here](http://dev.apollodata.com)
-
+Let me know if you run into any problems.
 
 --
 Maka
@@ -98,8 +90,16 @@ $ maka create my-app
 
 ### Create a React App
 ```
-$ maka create ReactApp --client=react
+$ maka create ReactApp
 ```
+
+### Create a GraphQL App
+```
+$ maka create GraphQLApp --graphql=apollo
+
+$ maka g:api boats
+```
+Currently there is a problem with Safari, so use Chrome and go to http://localhost:3000/graphiql to see the server running!
 
 
 The following parameters can be specified:

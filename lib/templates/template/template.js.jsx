@@ -1,7 +1,12 @@
 import { Meteor } from 'meteor/meteor';
-import { createContainer } from 'meteor/react-meteor-data';
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+<% if(graphql === 'apollo') { %>
+import { withTracker } from 'meteor/react-meteor-data';
+import { graphql, compose } from 'react-apollo';
+import gql from 'graphql-tag';
+<% } else { %>
+import { createContainer } from 'meteor/react-meteor-data';
+<% } %>
 
 /**
  * @namespace Client.Component.<%= className %>Component
@@ -90,41 +95,29 @@ class <%= className %>Component extends Component {
 
 /**
  * @memberof Client.Component.<%= className %>Component
- * @desc
- * Define property types for each of the react component data context properties.
- *
- * Refer to this site for more information on React PropTypes:
- * https://facebook.github.io/react/docs/typechecking-with-proptypes.html
- */
-<%= className %>Component.propTypes = {};
-
-/**
- * @memberof Client.Component.<%= className %>Component
  *
  * @desc
  * Set up the data context for our component
  * This is where we would create our Meteor.subscribe handler as
  * well as any other context properties that will need to be reactive.
  *
- * Example:
- *
- * ```
- * const subs      = Meteor.subscribe('<%= className %>.public');
- * const loading   = !subs.ready();
- * const data      = <%= className %>.find({}).fetch() || [];
- *
- * return { loading, data };
- *
- * ```
- *
- * Refer to this page for more information on the createContainer symbol
- * https://atmospherejs.com/meteor/react-meteor-data
+ * Refer to this page for more information on the withTracker symbol
+ * https://github.com/meteor/react-packages/tree/devel/packages/react-meteor-data
  */
+<% if(graphql === 'apollo') { %>
+const <%= className %> = compose(
+    //graphql(),
+    withTracker((props) => {
+        return {};
+    })
+)(<%= className %>Component);
+<% } else { %>
 const <%= className %> = createContainer((props) => {
 
     // Return our context to the react component.
     return {};
 
 }, <%= className %>Component);
+<% } %>
 
 export { <%= className %>, <%= className %>Component };
