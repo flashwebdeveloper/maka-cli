@@ -1,9 +1,9 @@
 {
   "public": {
-  },
+  }
 
   <% if (config.engines.test !== 'none') { %>
-  "coverage": {
+  ,"coverage": {
       "coverage_app_folder": "<%= appPath %>",
       "is_coverage_active": true,
       "verbose": false

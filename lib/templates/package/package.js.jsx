@@ -6,19 +6,14 @@ Package.describe({
 });
 
 Npm.depends({
-    "babel-runtime": "6.20.0",
-    "react": "15.4.1",
-    "react-dom": "15.4.1",
-    "react-router": "3.0.0"
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.3.2');
+  api.versionsFrom('1.6');
 
   api.use(['ecmascript', 'templating', 'modules']);
 
   var packages = [
-    'maka:rest'
   ];
 
   api.use(packages);
