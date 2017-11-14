@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-<% console.log(config) %>
 <% if (config.engines.graphql === 'apollo') {  %>
 import { Meteor } from 'meteor/meteor';
 

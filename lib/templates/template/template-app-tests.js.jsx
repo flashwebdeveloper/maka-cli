@@ -14,7 +14,8 @@ if (Meteor.isClient) {
     import { $ } from 'meteor/jquery';
     import React from 'react';
     import ReactDOM from 'react-dom';
-    import ReactTestUtils from 'react-addons-test-utils'
+    import ReactTestUtils from 'react-dom/test-utils';
+    import ShallowRenderer from 'react-test-renderer/shallow';
 
     // **** Subject under test (SUT) ****
     import { <%= className %>Component } from './<%= fileName %>.jsx';
@@ -27,7 +28,7 @@ if (Meteor.isClient) {
      */
 
     // setup the shallowRenderer and simulator variables.
-    const shallowRenderer = ReactTestUtils.createRenderer();
+    const shallowRenderer = new ShallowRenderer();
     const simulator = ReactTestUtils.Simulate;
 
     // variables to hold our shadow DOM element and our actual element (el).

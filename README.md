@@ -17,29 +17,42 @@ Enjoy! Let me know what you think, or if you have any suggestions!
 --
 Maka
 
-### Update 2.7.0
-I'm please to announce that maka-cli now supports the scaffolding of GraphQL resources!  This only applies to new projects (why would you try to cram graphql into an existing project... yuck!) and can be invoked during creation:
+### Update. 2.7.6
+So I've been seeing a trend that maka-cli base app is getting pretty... big boned... and I think it's best to cull some of the packages that are going in by default.  Namely, test and rest.
+
+New apps will no longer be built by default with test and rest packages, saving hundreds of initial package loads from going in!
+
+In other news, I've had this test coverage itch I just couldn't stop scratching.  As such... you know that cool Velocity html-reporter that we use (if you're not... pff) well I integrated meteor-coverage into maka scaffold-ed apps so now when you run tests and use meteor-coverage you'll get a new button to generate a coverage report!  Neat!  If you partake in the test suite, all you have to do is run 
+
+```sh 
+    $ maka --test
 
 ```
-$ maka create GraphQLApp --graphql=apollo
-```
 
-Now, there are no API resources available so the GraphQL server won't be running yet.  You'll need to create an API resource first:
 
-```
-$ maka g:api boats
-```
+Recap:
 
-Now, run ``` $ maka ``` and open up Chrome to localhost:3000/graphiql (Safari has a bug with this, so use Chrome) and issue the query:
-```
-    query {
-        boats
-    }
-```
+ * Tests and Rest API are not longer default.
+ * I was itchy.
+ * Coverage now comes with the test suite.
 
-Poof! "hello boats" should appear!
+ To load the two, now orphaned, options you'll need to use the following:
 
-Let me know if you run into any problems.
+ ``` sh
+    $ maka create newApp --test=jasmine --api=rest
+ ```
+
+ Sorry for those that really like that bcrypt message caused by restivus... ha!
+
+ --
+ Maka
+
+### Update 2.7.5
+Looks like the update to React did some strange stuff to the testing suite.  ReactTestUtils and the Shallow Renderer packages have been moved around.  As such, I had to include a new package ``` maka npm install --save react-test-renderer ``` and update the *.app-test.jsx render to include this new module along with point ReactTestUtils to it's new home inside react-dom.
+
+Unfortunatly, if you have a lot of tests this means they each need to be updated... sucks!
+
+Sorry, but it is what it is.  Blame Facebook?
 
 --
 Maka

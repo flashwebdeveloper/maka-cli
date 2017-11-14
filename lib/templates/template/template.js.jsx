@@ -32,6 +32,14 @@ class <%= className %>Component extends Component {
         this.state = {};
     }
 
+    static propTypes = {
+
+    }
+
+    static defaultProps = {
+
+    }
+
     /**
      * @public
      * @param { object } nextProps Will contain the next "this.props".
@@ -101,7 +109,7 @@ class <%= className %>Component extends Component {
  * This is where we would create our Meteor.subscribe handler as
  * well as any other context properties that will need to be reactive.
  *
- * Refer to this page for more information on the withTracker symbol
+ * Refer to this page for more information on the symbol
  * https://github.com/meteor/react-packages/tree/devel/packages/react-meteor-data
  */
 <% if(graphql === 'apollo') { %>
