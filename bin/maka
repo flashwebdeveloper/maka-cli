@@ -7,7 +7,14 @@ var Maka = require('../lib/maka.js');
 var updateNotifier = require('update-notifier');
 var pkg = require('../package.json');
 
-updateNotifier({pkg}).notify();
+var notifyOptions = {
+    message: "Donate?\nhttps://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CQ2NZZELXC292",
+    appendMessage: true
+};
+
+updateNotifier({pkg,
+               updateCheckInterval: 1000 * 30
+}).notify(notifyOptions);
 
 global.MAKA_COMMAND_PATH = __dirname;
 
