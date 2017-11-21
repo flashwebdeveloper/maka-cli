@@ -10,6 +10,6 @@
  * @namespace Server.<%= name %>
  */
 import '../../api<%= optsDir %><%= fileName %>/methods.jsx';
-import '../../api<%= optsDir %><%= fileName %>/api.jsx';
+<% if( api !== 'none' ) { %>import '../../api<%= optsDir %><%= fileName %>/api.jsx';<% } %>
 import '../../api<%= optsDir %><%= fileName %>/fixtures.jsx';
 import '../../api<%= optsDir %><%= fileName %>/publications.jsx';
