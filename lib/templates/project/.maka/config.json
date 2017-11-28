@@ -6,7 +6,8 @@
     "api": "<%= config.engines.api %>",
     "client": "<%= config.engines.client %>",
     "test": "<%= config.engines.test %>",
-    "graphql": "<%= config.engines.graphql %>"
+    "graphql": "<%= config.engines.graphql %>",
+    "ssr": "<%= config.engines.ssr %>"
   },
 
   "template": {

@@ -1,5 +1,5 @@
 /** @namespace Client */
-import Routes from './routes.jsx';
+<% if (config.engines.ssr === 'true') { %>import Routes from '../lib/routes.jsx';<% } else { %> import Routes from './routes.jsx'; <% } %>
 
 import React from 'react';
 import ReactDOM from 'react-dom';
