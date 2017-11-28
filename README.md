@@ -16,6 +16,26 @@ Enjoy! Let me know what you think, or if you have any suggestions!
 
 --
 Maka
+### Update 2.7.18
+In an effort to better align maka projects with SSR, I've taken a small step to abstract out the React Routes and the App entry point.  You won't see a difference with existing projects however with new projects a bulk of the React App entry point code will now live in the client/index.jsx file instead of being grouped in with the routes.jsx file.
+
+In subsequent releases, I'll be implementing a way to create an app that is configured for SSR... something like ``` $ maka create ssr-ready-app --ssr=true ``` ...
+
+Until then, I also added in a beta support for material-ui-next.  If you like Material-UI, like I do, you can create new apps with the Mui theme configured (in the client/index.jsx file):
+
+```sh
+    $ maka create material-app --theme=material
+```
+
+Here is how I made a recent app which worked well:
+
+```sh
+    $ maka create todos --theme=material --graphql=apollo --tests=jasmine
+```
+
+As you can expect, I needed a material-ui based app, using apollo as a data provider and the client needed tests...there it is!
+
+
 
 ### Update. 2.7.6
 So I've been seeing a trend that maka-cli base app is getting pretty... big boned... and I think it's best to cull some of the packages that are going in by default.  Namely, test and rest.
