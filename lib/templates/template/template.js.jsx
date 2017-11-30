@@ -1,11 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
-<% if(graphql === 'apollo') { %>
 import { withTracker } from 'meteor/react-meteor-data';
+<% if(graphql === 'apollo') { %>
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
-<% } else { %>
-import { createContainer } from 'meteor/react-meteor-data';
 <% } %>
 
 /**
@@ -111,21 +109,15 @@ class <%= className %>Component extends Component {
  *
  * Refer to this page for more information on the symbol
  * https://github.com/meteor/react-packages/tree/devel/packages/react-meteor-data
- */
-<% if(graphql === 'apollo') { %>
+ */<% if(graphql === 'apollo') { %>
 const <%= className %> = compose(
-    //graphql(),
     withTracker((props) => {
         return {};
     })
-)(<%= className %>Component);
-<% } else { %>
-const <%= className %> = createContainer((props) => {
-
-    // Return our context to the react component.
-    return {};
-
-}, <%= className %>Component);
-<% } %>
+)(<%= className %>Component);<% } else { %>
+const <%= className %> = withTracker((props) => {
+        return {};
+    })
+(<%= className %>Component);<% } %>
 
 export { <%= className %>, <%= className %>Component };

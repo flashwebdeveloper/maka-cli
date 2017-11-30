@@ -4,12 +4,10 @@
  */
 
 import React, { Component } from 'react';
-<% if(graphql === 'apollo') { %>
 import { withTracker } from 'meteor/react-meteor-data';
+<% if(graphql === 'apollo') { %>
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
-<% } else { %>
-import { createContainer } from 'meteor/react-meteor-data';
 <% } %>
 
 class <%= className %>Component extends Component {
@@ -41,22 +39,15 @@ class <%= className %>Component extends Component {
     componentWillUnmount() {
 
     }
-}
-
-<% if(graphql === 'apollo') { %>
+}<% if(graphql === 'apollo') { %>
 const <%= className %> = compose(
-    //graphql(),
     withTracker((props) => {
         return {};
     })
-)(<%= className %>Component);
-<% } else { %>
-const <%= className %> = createContainer((props) => {
+)(<%= className %>Component);<% } else { %>
+const <%= className %> = withTracker((props) => {
+        return {};
+    })
+(<%= className %>Component);<% } %>
 
-    // Return our context to the react component.
-    return {};
-
-}, <%= className %>Component);
-<% } %>
-
-export { <%= className %>, <%= className %>Component }
+export { <%= className %>, <%= className %>Component };

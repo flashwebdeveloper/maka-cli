@@ -1,6 +1,6 @@
 {
   "name": "maka-cli",
-  "version": "2.7.22",
+  "version": "2.7.23",
   "description": "A command line tool for scaffolding Meteor 1.6.x applications using either React (or Blaze) and GraphQL using Apollo.",
   "homepage": "https://github.com/maka-io/maka-cli",
   "repository": {
