@@ -30,7 +30,7 @@
     "underscore": "^1.8.3",
     "update-notifier": "^2.3.0",
     "xtend": "^4.0.0",
-    "esj": "^2.5.5"
+    "ejs": "^2.5.5"
   },
   "bin": {
     "maka": "./bin/maka"
