@@ -47,12 +47,7 @@ onPageLoad(sink => {
         <App location={sink.request.url} />
     ));
 
-    // This will cause warnings... but it actually works...
-    // So I'm going to leave it as is.
-    sink.appendToBody(html);
+    sink.renderIntoElementById('app', html);
     sink.appendToHead(sheet.getStyleTags());
 
-    // This method doesn't work.
-    // Issue created: https://github.com/meteor/meteor/issues/9429
-    // sink.renderIntoElementById('app', html);
 });<% } %>

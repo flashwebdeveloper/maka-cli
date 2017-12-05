@@ -34,8 +34,7 @@ const App = () => (
 
 Meteor.startup(() => {<% if (config.engines.ssr === 'true') { %>
     onPageLoad(sink => {
-        // TODO: Once mdg figures out the issue with sink.renderIntoElementById change this back to the app id
-        ReactDOM.hydrate(<App />,document.body);
+        ReactDOM.hydrate(<App />,document.getElementById('app'));
     });<% } else { %>
     ReactDOM.render(<App />, document.getElementById('app'));<% } %>
 });
