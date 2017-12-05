@@ -4,78 +4,22 @@
 
 Meteor Apps Kick Ass! (maka) 
 
-Maka is a command line scaffolding tool for Meteor applications.
+Maka is a command line scaffolding tool for Meteor applications with options for Server Side Rendering (SSR), GraphQL using Apollo, theme's by Material-UI (next), Tests with Jasmine, documentation with JSDocs and much more.
 
 It automatically creates project structure, files and boilerplate code.  You may use maka where ever you use meteor.
 
 Maka works great on OSX and Linux... and now much better on Windows.
 
-All the Meteor 1.3 style templates have been updated with JSDoc tags. This includes the api, ui, routes, and some others.  So if you start a new project with maka, you'll get documentation right from the get go!  Otherwise you'll have to enjoy the new JSDoc comments on newly generated files.
 
-Enjoy! Let me know what you think, or if you have any suggestions!
+``` sh
+
+    $ maka create something-aweosme --graphql=apollo --theme=material --test=jasmine --ssr=true
+
+```
 
 --
 Maka
-### Update 2.7.18
-In an effort to better align maka projects with SSR, I've taken a small step to abstract out the React Routes and the App entry point.  You won't see a difference with existing projects however with new projects a bulk of the React App entry point code will now live in the client/index.jsx file instead of being grouped in with the routes.jsx file.
 
-In subsequent releases, I'll be implementing a way to create an app that is configured for SSR... something like ``` $ maka create ssr-ready-app --ssr=true ``` ...
-
-Until then, I also added in a beta support for material-ui-next.  If you like Material-UI, like I do, you can create new apps with the Mui theme configured (in the client/index.jsx file):
-
-```sh
-    $ maka create material-app --theme=material
-```
-
-Here is how I made a recent app which worked well:
-
-```sh
-    $ maka create todos --theme=material --graphql=apollo --tests=jasmine
-```
-
-As you can expect, I needed a material-ui based app, using apollo as a data provider and the client needed tests...there it is!
-
-
-
-### Update. 2.7.6
-So I've been seeing a trend that maka-cli base app is getting pretty... big boned... and I think it's best to cull some of the packages that are going in by default.  Namely, test and rest.
-
-New apps will no longer be built by default with test and rest packages, saving hundreds of initial package loads from going in!
-
-In other news, I've had this test coverage itch I just couldn't stop scratching.  As such... you know that cool Velocity html-reporter that we use (if you're not... pff) well I integrated meteor-coverage into maka scaffold-ed apps so now when you run tests and use meteor-coverage you'll get a new button to generate a coverage report!  Neat!  If you partake in the test suite, all you have to do is run 
-
-```sh 
-    $ maka --test
-
-```
-
-
-Recap:
-
- * Tests and Rest API are not longer default.
- * I was itchy.
- * Coverage now comes with the test suite.
-
- To load the two, now orphaned, options you'll need to use the following:
-
- ``` sh
-    $ maka create newApp --test=jasmine --api=rest
- ```
-
- Sorry for those that really like that bcrypt message caused by restivus... ha!
-
- --
- Maka
-
-### Update 2.7.5
-Looks like the update to React did some strange stuff to the testing suite.  ReactTestUtils and the Shallow Renderer packages have been moved around.  As such, I had to include a new package ``` maka npm install --save react-test-renderer ``` and update the *.app-test.jsx render to include this new module along with point ReactTestUtils to it's new home inside react-dom.
-
-Unfortunatly, if you have a lot of tests this means they each need to be updated... sucks!
-
-Sorry, but it is what it is.  Blame Facebook?
-
---
-Maka
 
 
 ## Installation
