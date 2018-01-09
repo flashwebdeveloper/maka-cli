@@ -14,7 +14,7 @@ var notifyOptions = {
 
 updateNotifier({pkg,
                updateCheckInterval: 1000 * 30
-}).notify(notifyOptions);
+}).notify();
 
 global.MAKA_COMMAND_PATH = __dirname;
 

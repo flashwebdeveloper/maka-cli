@@ -60,9 +60,9 @@ In the app directory:
 $ maka migrate
 ```
 
-### Create an Application
+### Create a Blaze application
 ```sh
-$ maka create my-app
+$ maka create my-app --client=blaze
 ```
 
 ### Create a React App

@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 <% if(graphql === 'apollo') { %>
 import { graphql, compose } from 'react-apollo';
@@ -30,10 +31,19 @@ class <%= className %>Component extends Component {
         this.state = {};
     }
 
+    /**
+     * @desc You should define any props that the component has here, making sure
+     * to set required props when needed.  This greatly improves the class's readability.
+     */
     static propTypes = {
 
     }
 
+    /**
+     * @desc Setting default properties can be very useful, as this is the only place
+     * where properties can be set within the component.  Props are immutable after the
+     * component is instantiated.
+     */
     static defaultProps = {
 
     }
