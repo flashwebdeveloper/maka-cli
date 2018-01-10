@@ -8,7 +8,7 @@ Maka is a command line scaffolding tool for Meteor applications with options for
 
 It automatically creates project structure, files and boilerplate code.  You may use maka where ever you use meteor.
 
-Maka works great on OSX and Linux... and now much better on Windows.
+Maka works great on OSX and Linux... and Windows.
 
 
 ``` sh
@@ -76,18 +76,6 @@ $ maka create GraphQLApp --graphql=apollo
 
 $ maka g:api boats
 ```
-Currently there is a problem with Safari, so use Chrome and go to http://localhost:3000/graphiql to see the server running!
-
-
-The following parameters can be specified:
-```
---skip-template-css=true|false       Don't generate CSS files when templates are made.
---skip-template-js=true|false        Don't generate JS files when templates are made.
---skip-template-html=true|false      Don't generate HTML files when templates are made.
---skip-flow-router                   Don't install flow-router. (route generators will be disabled in maka-cli)
---skip-route-template                Don't create templates with route generators.
---skip-testing                         Don't install testing packages (jasmine, html/console reporter, factory, etc)
-```
 
 ### Run Your Application
 ```sh
@@ -115,6 +103,21 @@ $ maka g:package packageName
 
 Help:
 $ maka g 
+```
+
+## Options
+
+Currently there is a problem with Safari, so use Chrome and go to http://localhost:3000/graphiql to see the server running!
+
+
+The following parameters can be specified:
+```
+--skip-template-css=true|false       Don't generate CSS files when templates are made.
+--skip-template-js=true|false        Don't generate JS files when templates are made.
+--skip-template-html=true|false      Don't generate HTML files when templates are made.
+--skip-route-template                Don't create templates with route generators.
+--test=jasmine                      Install testing packages (jasmine, html/console reporter, factory, etc)
+--api=rest							 Install REST API package that ties directly with Meteor MongoDB collections.
 ```
 
 ## Testing
@@ -240,7 +243,7 @@ $ heroku buildpacks:set https://github.com/AdmitHub/meteor-buildpack-horse.git#b
 
 Setup MongoDB
 ```sh
-$heroku addons:create mongolab
+$ heroku addons:create mongolab
 ```
 Configure your ROOT_URL
 ```sh
