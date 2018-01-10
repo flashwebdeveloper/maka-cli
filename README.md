@@ -76,6 +76,8 @@ $ maka create GraphQLApp --graphql=apollo
 
 $ maka g:api boats
 ```
+Currently there is a problem with Safari, so use Chrome and go to http://localhost:3000/graphiql to see the server running!
+
 
 ### Run Your Application
 ```sh
@@ -98,17 +100,14 @@ $ maka g:route todos/show todos/:id
 $ maka g:route todos/edit todos/:id/edit
 $ maka g:publish todos
 $ maka g:stylesheet main
-$ maka g:package username:packageName
-$ maka g:package packageName
+$ maka g:package username:packageName. 		# Create an atmosphere package that can be published
+$ maka g:package packageName				# Create a meteor package that is local
 
 Help:
 $ maka g 
 ```
 
 ## Options
-
-Currently there is a problem with Safari, so use Chrome and go to http://localhost:3000/graphiql to see the server running!
-
 
 The following parameters can be specified:
 ```
@@ -211,7 +210,7 @@ maka mupx <environment> --init
 ```
 
 ### Deploy Your Application on Heroku
-Maka projects require buildpacks to look for the app in /app/ in addition to the root for deployments to work. Currently there is a patched version of the Horse buildpack available that is compatible with Iron based projects. Use this fork until the patches has been added to the main Horse repo.
+Maka projects require buildpacks to look for the app in /app/ in addition to the root for deployments to work. Currently there is a patched version of the Horse buildpack available that is compatible with Maka based projects. Use this fork until the patches has been added to the main Horse repo.
 
 Initialize the git repo
 ```sh
