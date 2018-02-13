@@ -1,14 +1,12 @@
-/**
- * @namespace Client.Templates.<%= className %>
- * @memberof Client.Layouts
- */
-
-import React, { Component } from 'react';
-import { withTracker } from 'meteor/react-meteor-data';
+import React from 'react';
+<% if (client === 'react') { %>
+import { Component } from 'react';<% if (client === 'reflux') { %>
+import Reflux, { Component } from 'reflux';<% } %>
+<% if (features.withTracker !== 'false') { %>
+import { withTracker } from 'meteor/react-meteor-data';<% } %>
 <% if(graphql === 'apollo') { %>
 import { graphql, compose } from 'react-apollo';
-import gql from 'graphql-tag';
-<% } %>
+import gql from 'graphql-tag';<% } %>
 
 class <%= className %>Component extends Component {
     constructor(props) {
@@ -16,38 +14,29 @@ class <%= className %>Component extends Component {
         this.state = {};
     }
 
-    shouldComponentUpdate() {
-        return true;
-    }
+    static propTypes = {}
 
-    componentWillMount() {
-    }
+    static defaultProps = {}
 
-    // The main render function
-    render() {
-        return (
-            <div>
-                { this.props.children }
-            </div>
-        );
-    }
+    componentWillMount() {}
 
-    componentDidMount() {
+    render() { return (<div>{ this.props.children }</div>); }
 
-    }
+    componentDidMount() { }
 
-    componentWillUnmount() {
+    componentWillUnmount() { }
 
-    }
-}<% if(graphql === 'apollo') { %>
+    componentDidCatch(error, info) { console.log(error, info); }
+}
+<% if(graphql === 'apollo') { %>
 const <%= className %> = compose(
     withTracker((props) => {
         return {};
     })
-)(<%= className %>Component);<% } else { %>
+)(<%= className %>Component);<% } else if (features.withTracker !== 'false') { %>
 const <%= className %> = withTracker((props) => {
         return {};
     })
-(<%= className %>Component);<% } %>
-
+(<%= className %>Component);<% } else { %>
+const <%= className %> = <%= className %>Component;<% } %>
 export { <%= className %>, <%= className %>Component };
