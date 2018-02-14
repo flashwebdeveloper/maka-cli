@@ -24,7 +24,7 @@ Maka
 ## UPDATE 2.8.12
 Good evening!
 
-I've been away a little bit, but I just decided to come back.  You're welcome.  I come with a gift!  REFLUX!
+I've been away a little bit, but I just decided to come back! I come with a gift!  REFLUX!
 
 If you don't know what reflux is... well you should find out.  If you DO, then please help yourself to the new
 reflux client engine and generator.
@@ -49,7 +49,7 @@ directory in ./ui called "actions" but if that makes the MOST sense then so shal
 I also want to turn your attention to the new option when creating apps to NOT include 'withTracker'.  I've thought about
 this long and hard... and I find that trying to use testing, meteor's reactivity and just another layer has been ever so
 exhausting.  I'm not saying I don't love Meteor... after all.. Meteor Apps Kick Ass!  I'm just saying I don't have to
-LIKE withTracker right now.  It's not there by default, so you'll have to add the option.  Just saying, it's there.
+LIKE withTracker right now.  So if you would like to skip the inclusion of withTracker use this option.
 
 ```sh
 $ maka create no-track-app --skip-tracker
