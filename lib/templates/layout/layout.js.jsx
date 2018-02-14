@@ -15,21 +15,29 @@ class <%= className %>Component extends Component {
 
     static defaultProps = {}
 
-    componentWillMount() {}
+    componentWillMount() {<% if (client === 'reflux' && !isStore) { %>
+        super.componentWillMount();<% }%>
+    }
 
     render() { return (<div>{ this.props.children }</div>); }
 
     componentDidMount() { }
 
-    componentWillUnmount() { }
+    componentWillUnmount() {<% if (client === 'reflux' && !isStore) { %>
+        super.componentWillUnmount();<% }%>
+    }
 
     componentDidCatch(error, info) { console.log(error, info); }
 }
-<% if(graphql === 'apollo') { %>
+<% if(graphql === 'apollo' && features.withTracker !== 'false') { %>
 const <%= className %> = compose(
+    //graphql(),
     withTracker((props) => {
         return {};
     })
+)(<%= className %>Component);<% } else if (graphql === 'apollo' && features.withTracker === 'false') { %>
+const <%= className %> = compose(
+    //graphql()
 )(<%= className %>Component);<% } else if (features.withTracker !== 'false') { %>
 const <%= className %> = withTracker((props) => {
         return {};

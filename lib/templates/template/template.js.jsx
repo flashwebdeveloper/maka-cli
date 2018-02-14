@@ -24,7 +24,9 @@ class <%= className %>Component extends Store { <% } %><% if (client === 'reflux
 
     static defaultProps = {}
 
-    componentWillMount() {}
+    componentWillMount() {<% if (client === 'reflux' && !isStore) { %>
+        super.componentWillMount();<% }%>
+    }
 
     render() { 
         return (<h2 className="<%=fileName%>">Find me in <%= myPath %></h2>);
@@ -32,20 +34,28 @@ class <%= className %>Component extends Store { <% } %><% if (client === 'reflux
 
     componentDidMount() { }
 
-    componentWillUnmount() { }
+    componentWillUnmount() {<% if (client === 'reflux' && !isStore) { %>
+        super.componentWillUnmount();<% }%>
+    }
 
     componentDidCatch(error, info) { console.log(error, info); }<% } %>
-}
-<% if(graphql === 'apollo') { %>
+}<% if (!isStore) { %><% if(graphql === 'apollo' && features.withTracker !== 'false') { %>
 const <%= className %> = compose(
+    //graphql(),
     withTracker((props) => {
         return {};
     })
+)(<%= className %>Component);<% } else if (graphql === 'apollo' && features.withTracker === 'false') { %>
+const <%= className %> = compose(
+    //graphql()
 )(<%= className %>Component);<% } else if (features.withTracker !== 'false') { %>
 const <%= className %> = withTracker((props) => {
-        return {};
-    })
+    return {};
+})
 (<%= className %>Component);<% } else { %>
 const <%= className %> = <%= className %>Component;<% } %>
 
-export { <%= className %>, <%= className %>Component };
+export { <%= className %>, <%= className %>Component };<% } else { %>
+const <%= className %> = <%= className %>Component;
+
+export { <%= className %> };<% } %>

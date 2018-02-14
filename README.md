@@ -21,7 +21,7 @@ Maka works great on OSX and Linux... and Windows.
 Maka
 
 
-## UPDATE 2.8.12
+## UPDATE 2.9.0
 Good evening!
 
 I've been away a little bit, but I just decided to come back! I come with a gift!  REFLUX!
@@ -54,12 +54,8 @@ LIKE withTracker right now.  So if you would like to skip the inclusion of withT
 ```sh
 $ maka create no-track-app --skip-tracker
 ```
-If you'd like to enable this in your app going forward, simply modify the .maka/config.json file with a k/v of:
 
-
-
-Anywho... I also removed all those boiler plate docstrings from the react templates.  I'm sure you all don't need the training
-wheels anymore.
+Anywho... I also removed all those boiler plate docstrings from the react templates. I may have gotten carried away with the boilerplate... 
 
 
 ```json
