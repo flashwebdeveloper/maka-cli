@@ -1,10 +1,7 @@
-import React from 'react';
-<% if (client === 'react') { %>
-import { Component } from 'react';<% if (client === 'reflux') { %>
-import Reflux, { Component } from 'reflux';<% } %>
-<% if (features.withTracker !== 'false') { %>
-import { withTracker } from 'meteor/react-meteor-data';<% } %>
-<% if(graphql === 'apollo') { %>
+import React from 'react';<% if (client === 'react') { %>
+import { Component } from 'react';<% } %><% if (client === 'reflux') { %>
+import Reflux, { Component } from 'reflux';<% } %><% if (features.withTracker !== 'false') { %>
+import { withTracker } from 'meteor/react-meteor-data';<% } %><% if(graphql === 'apollo') { %>
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';<% } %>
 
@@ -39,4 +36,5 @@ const <%= className %> = withTracker((props) => {
     })
 (<%= className %>Component);<% } else { %>
 const <%= className %> = <%= className %>Component;<% } %>
+
 export { <%= className %>, <%= className %>Component };

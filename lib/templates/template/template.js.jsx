@@ -1,14 +1,13 @@
-import React from 'react';
-<% if (client === 'react') { %>
+import React from 'react';<% if (client === 'react') { %>
 import { Component } from 'react';<% } else if (client === 'reflux') { %>
-import Reflux from 'reflux';
+import Reflux from 'reflux';<% } %><%if (client === 'reflux' && !isStore) { %>
 import { Component } from 'reflux';<% } %><% if (client === 'reflux' && isStore) { %>
-import { Store } from 'reflux';<% } %>
-import PropTypes from 'prop-types';<% if (features.withTracker !== 'false') { %>
+import { Store } from 'reflux';<% } %><% if (features.withTracker !== 'false') { %>
 import { withTracker } from 'meteor/react-meteor-data';<% } %><% if(graphql === 'apollo') { %>
 import { graphql, compose } from 'react-apollo';
-import gql from 'graphql-tag';<% } %><% if (!isStore) { %>
-
+import gql from 'graphql-tag';<% } %>
+import PropTypes from 'prop-types';
+<% if (!isStore) { %>
 class <%= className %>Component extends Component {<% } else { %>
 class <%= className %>Component extends Store { <% } %><% if (client === 'reflux' && isStore) { %>
     constructor() {
@@ -48,4 +47,5 @@ const <%= className %> = withTracker((props) => {
     })
 (<%= className %>Component);<% } else { %>
 const <%= className %> = <%= className %>Component;<% } %>
+
 export { <%= className %>, <%= className %>Component };
