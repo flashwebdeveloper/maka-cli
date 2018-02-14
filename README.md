@@ -21,6 +21,54 @@ Maka works great on OSX and Linux... and Windows.
 Maka
 
 
+## UPDATE 2.8.12
+Good evening!
+
+I've been away a little bit, but I just decided to come back.  You're welcome.  I come with a gift!  REFLUX!
+
+If you don't know what reflux is... well you should find out.  If you DO, then please help yourself to the new
+reflux client engine and generator.
+
+```sh
+$ maka create reflux-app --client=reflix
+```
+
+```sh
+$maka g:template new-store --store
+```
+
+Look for the new store in:
+```sh
+$ reflix-app/app/imports/ui/stores/new-store
+```
+
+Now, "what about actions?!" you fervently ask?  I'm not sure where to put those at the moment.  For all my dealings, they
+sit just fine right in the stores... maybe my ignorance... I'm open to suggestions (and yes, I've already thought of a
+directory in ./ui called "actions" but if that makes the MOST sense then so shall it be).
+
+I also want to turn your attention to the new option when creating apps to NOT include 'withTracker'.  I've thought about
+this long and hard... and I find that trying to use testing, meteor's reactivity and just another layer has been ever so
+exhausting.  I'm not saying I don't love Meteor... after all.. Meteor Apps Kick Ass!  I'm just saying I don't have to
+LIKE withTracker right now.  It's not there by default, so you'll have to add the option.  Just saying, it's there.
+
+```sh
+$ maka create no-track-app --skip-tracker
+```
+If you'd like to enable this in your app going forward, simply modify the .maka/config.json file with a k/v of:
+
+
+
+Anywho... I also removed all those boiler plate docstrings from the react templates.  I'm sure you all don't need the training
+wheels anymore.
+
+
+```json
+...
+"features": {
+    "withTracker": false
+}
+...
+```
 
 ## Installation
 Make sure Meteor is installed:
@@ -111,6 +159,7 @@ $ maka g
 
 The following parameters can be specified:
 ```
+--skip-meteor-tracker                Don't wrap React/Reflux apps in the meteor tracker.
 --skip-template-css=true|false       Don't generate CSS files when templates are made.
 --skip-template-js=true|false        Don't generate JS files when templates are made.
 --skip-template-html=true|false      Don't generate HTML files when templates are made.

@@ -1,6 +1,5 @@
-/** @namespace Client */
-<% if (config.engines.ssr === 'true') { %>import Routes from '../lib/routes.jsx';<% } else { %> import Routes from './routes.jsx'; <% } %>
-
+/** @namespace Client */<% if (config.engines.ssr === 'true') { %>
+import Routes from '../lib/routes.jsx';<% } else { %> import Routes from './routes.jsx'; <% } %>
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
@@ -23,13 +22,13 @@ import { browserHistory } from 'react-router';
 <% } %>
 
 const App = () => (
-    <% if (config.engines.ssr === 'true') { %><BrowserRouter><% } %>
+<% if (config.engines.ssr === 'true') { %><BrowserRouter><% } %>
     <% if (config.engines.graphql === 'apollo') { %><ApolloProvider client={client}><% } %>
         <% if (config.engines.theme === 'material') { %><MuiThemeProvider theme={theme}><% } %>
             <% if (config.engines.ssr === 'true') { %><Routes history={browserHistory}/><% } else { %><Routes/><% } %>
-         <% if (config.engines.theme === 'material') { %></MuiThemeProvider><% } %>
+        <% if (config.engines.theme === 'material') { %></MuiThemeProvider><% } %>
     <% if (config.engines.graphql === 'apollo') { %></ApolloProvider><% } %>
-    <% if (config.engines.ssr === 'true') { %></BrowserRouter><% } %>
+<% if (config.engines.ssr === 'true') { %></BrowserRouter><% } %>
 );
 
 Meteor.startup(() => {<% if (config.engines.ssr === 'true') { %>

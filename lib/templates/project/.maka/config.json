@@ -16,7 +16,9 @@
     "css": "<%= config.template.css %>",
     "test": "<%= config.template.test %>"
   },
-
+  "features": {
+    "withTracker": "<%= config.features.withTracker %>"
+  },
   "route": {
     "controller": "<%= config.route.controller %>",
     "template": "<%= config.route.template %>"
