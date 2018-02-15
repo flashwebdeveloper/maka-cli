@@ -17,7 +17,7 @@ class <%= className %>Component extends Store { <% } %><% if (client === 'reflux
     constructor(props) {
         super(props);
         this.state = {};<% if (client === 'reflux') { %>
-        this.store = {};<% } %>
+        this.store = null;<% } %>
     }
 
     static propTypes = {}

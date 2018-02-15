@@ -30,7 +30,7 @@ If you don't know what reflux is... well you should find out.  If you DO, then p
 reflux client engine and generator.
 
 ```sh
-$ maka create reflux-app --client=reflix
+$ maka create reflux-app --client=reflux
 ```
 
 ```sh
