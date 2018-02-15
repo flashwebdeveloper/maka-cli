@@ -61,7 +61,7 @@ Anywho... I also removed all those boiler plate docstrings from the react templa
 ```json
 ...
 "features": {
-    "withTracker": false
+    "withTracker": "false"
 }
 ...
 ```
