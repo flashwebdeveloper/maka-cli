@@ -1,12 +1,12 @@
 import React from 'react';<% if (client === 'react') { %>
-import { Component } from 'react';<% } else if (client === 'reflux') { %>
-import Reflux from 'reflux';<% } %><%if (client === 'reflux' && !isStore) { %>
-import { Component } from 'reflux';<% } %><% if (client === 'reflux' && isStore) { %>
-import { Store } from 'reflux';<% } %><% if (features.withTracker !== 'false') { %>
+import { Component } from 'react';<% } else if (client === 'reflux' && !isStore) { %>
+import Reflux from 'reflux';
+import { Component } from 'reflux';<% if (features.withTracker !== 'false') { %>
 import { withTracker } from 'meteor/react-meteor-data';<% } %><% if(graphql === 'apollo') { %>
 import { graphql, compose } from 'react-apollo';
-import gql from 'graphql-tag';<% } %>
-import PropTypes from 'prop-types';
+import gql from 'graphql-tag'; <% } %>
+import PropTypes from 'prop-types';<%  } else { %>
+import { Store } from 'reflux'; <% } %>
 <% if (!isStore) { %>
 class <%= className %>Component extends Component {<% } else { %>
 class <%= className %>Component extends Store { <% } %><% if (client === 'reflux' && isStore) { %>
