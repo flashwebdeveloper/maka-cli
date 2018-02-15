@@ -55,8 +55,7 @@ LIKE withTracker right now.  So if you would like to skip the inclusion of withT
 $ maka create no-track-app --skip-tracker
 ```
 
-Anywho... I also removed all those boiler plate docstrings from the react templates. I may have gotten carried away with the boilerplate... 
-
+For existing apps, if you want to disable the withTracker you'll just need to go into the .maka/config.json and add the following to the object:
 
 ```json
 ...
@@ -65,6 +64,10 @@ Anywho... I also removed all those boiler plate docstrings from the react templa
 }
 ...
 ```
+
+
+Anywho... I also removed all those boiler plate docstrings from the react templates. I may have gotten carried away with the boilerplate... 
+
 
 ## Installation
 Make sure Meteor is installed:
