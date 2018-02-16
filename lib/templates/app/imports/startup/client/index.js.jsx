@@ -6,9 +6,9 @@ import { Meteor } from 'meteor/meteor';
 <% if (config.engines.graphql === 'apollo') {  %>
 // Apollo Client configuration using vanilla meteor settings.
 import ApolloClient from 'apollo-boost';
-import { meteorClientConfig } from 'meteor/apollo';
+import { createApolloClient } from 'meteor/apollo';
 import { ApolloProvider } from 'react-apollo';
-const client = new ApolloClient(meteorClientConfig());
+const client = new ApolloClient(createApolloClient());
 <% } %><% if (config.engines.theme === 'material') { %>
 // Material UI Theme config using roboto typefont and default mui.
 import 'typeface-roboto'
