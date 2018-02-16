@@ -3,8 +3,8 @@ import { Component } from 'react';<% } else if (client === 'reflux' && !isStore)
 import Reflux from 'reflux';
 import { Component } from 'reflux';<% if (features.withTracker !== 'false') { %>
 import { withTracker } from 'meteor/react-meteor-data';<% } %><% if(graphql === 'apollo') { %>
-import { graphql, compose } from 'react-apollo';
-import gql from 'graphql-tag'; <% } %>
+import { Query } from 'react-apollo';
+import { gql } from 'apollo-boost'; <% } %>
 import PropTypes from 'prop-types';<%  } else { %>
 import { Store } from 'reflux'; <% } %>
 <% if (!isStore) { %>
@@ -39,16 +39,7 @@ class <%= className %>Component extends Store { <% } %><% if (client === 'reflux
     }
 
     componentDidCatch(error, info) { console.log(error, info); }<% } %>
-}<% if (!isStore) { %><% if(graphql === 'apollo' && features.withTracker !== 'false') { %>
-const <%= className %> = compose(
-    //graphql(),
-    withTracker((props) => {
-        return {};
-    })
-)(<%= className %>Component);<% } else if (graphql === 'apollo' && features.withTracker === 'false') { %>
-const <%= className %> = compose(
-    //graphql()
-)(<%= className %>Component);<% } else if (features.withTracker !== 'false') { %>
+}<% if (!isStore) { if (features.withTracker !== 'false') { %>
 const <%= className %> = withTracker((props) => {
     return {};
 })

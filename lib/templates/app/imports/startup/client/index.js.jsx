@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 <% if (config.engines.graphql === 'apollo') {  %>
 // Apollo Client configuration using vanilla meteor settings.
-import ApolloClient from 'apollo-client';
+import ApolloClient from 'apollo-boost';
 import { meteorClientConfig } from 'meteor/apollo';
 import { ApolloProvider } from 'react-apollo';
 const client = new ApolloClient(meteorClientConfig());
