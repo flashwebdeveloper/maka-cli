@@ -11,7 +11,7 @@ import { Meteor } from 'meteor/meteor';
 if (Meteor.isClient) {
     // this import needs to be in the Meteor.isClient conditional
     // because meteor will try to import on the server too.
-    import { $ } from 'meteor/jquery';
+    import { $ } from 'jquery';
     import React from 'react';
     import ReactDOM from 'react-dom';
     import ReactTestUtils from 'react-dom/test-utils';
