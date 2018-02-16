@@ -1,6 +1,8 @@
 import React from 'react';<% if (client === 'react') { %>
-import { Component } from 'react';<% } %><% if (client === 'reflux') { %>
-import Reflux, { Component } from 'reflux';<% } %>
+import { Component } from 'react';<% } else { %>
+import { Component } from 'reflux';<% } %>
+import PropTypes from 'prop-types';
+
 
 class <%= className %>Component extends Component {
     constructor(props) {
