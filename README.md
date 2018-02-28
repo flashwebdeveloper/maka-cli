@@ -368,67 +368,207 @@ $ node main.js
 ## Directory Structure
 The application will have the following directory structure:
 
+### Vanilla Example
+
 ```sh
+mjc@Mac vanilla-example $ tree
 .
 ├── app
 │   ├── client
-│   │   ├── head.html					 # The <head> tag
-│   │   └── main.js  					 # The entry point for imports/ui
-│   ├── imports      					 # Lazy loaded files live here
-│   │   ├── api      					 # Server concept logic
-│   │   │   └── todos					 # "maka g:api todos"
-│   │   │       ├── api.js   			 # RESTFul endpoints (restivus)
-│   │   │       ├── fixtures.js 		 # Preload data
-│   │   │       ├── methods.js   		 # Client invoked Server functions.
-│   │   │       ├── publications.js  	 # Broadcasted sets of data
-│   │   │       ├── todos.app-tests.js
-│   │   │       └── todos.js    		 # Collection
-│   │   ├── startup  					 
+│   │   ├── body.html
+│   │   ├── head.html
+│   │   └── main.jsx
+│   ├── imports
+│   │   ├── api
+│   │   │   └── todos
+│   │   │       ├── fixtures.jsx
+│   │   │       ├── methods.jsx
+│   │   │       ├── publications.jsx
+│   │   │       └── todos.jsx  // The Todos class collection
+│   │   ├── startup
 │   │   │   ├── client
-│   │   │   │   ├── index.js
-│   │   │   │   ├── routes.js   		 # FlowRouter routes
-│   │   │   │   └── templates.js     	 # Registers templates from ui/
+│   │   │   │   ├── index.jsx
+│   │   │   │   ├── routes.jsx // React client side routes.
+│   │   │   │   └── templates.jsx
 │   │   │   ├── lib
-│   │   │   │   └── index.js
+│   │   │   │   └── index.jsx
 │   │   │   └── server
-│   │   │       ├── index.js
-│   │   │       └── register-todos-api.js
+│   │   │       ├── index.jsx
+│   │   │       └── register-todo-api.jsx
 │   │   └── ui
-│   │       ├── components      		 # Reusable components
-│   │       │   └── header   			 # "maka g:t header --component"
-│   │       │       ├── header.css
-│   │       │       ├── header.html
-│   │       │       └── header.js
-│   │       ├── layouts      			 # Site layout
-│   │       │   └── master-layouts   	 # "maka g:t masterLayout --component" 
-│   │       │       ├── master-layout.html
-│   │       │       └── master-layout.js
-│   │       ├── pages       			 # "maka g:route home" or for no route:"maka g:t home" 
-│   │       │   └── home
-│   │       │       ├── home.css
-│   │       │       ├── home.html
-│   │       │       └── home.js
-│   │       └── test-helpers.js  		 # UI test helper function
+│   │       ├── layouts
+│   │       │   └── master-layout
+│   │       │       ├── master-layout.css
+│   │       │       └── master-layout.jsx
+│   │       ├── pages
+│   │       │   ├── home
+│   │       │   │   ├── home.css
+│   │       │   │   └── home.jsx
+│   │       │   └── not-found
+│   │       │       ├── not-found.css
+│   │       │       └── not-found.jsx
+│   │       └── test-helpers.jsx
 │   ├── lib
-│   │   └── main.js     				 # The entry point for imports/lib
-│   ├── packages				      	 # "maka g:package [account:]package"
-│   ├── private          				 # Server accessible (only) files
-│   ├── public          				 # Globally accessible files
+│   │   └── main.jsx
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── node_modules // Directory for npm packages.
+│   ├── packages
+│   ├── private  // Server side only assets
+│   ├── public   // Client side assets
+│   │   └── favicon.ico
 │   └── server
-│       └── main.js      				 # The entry point for imports/api
+│       └── main.jsx
 ├── bin
-├── build      		# "maka build --architecture [os.linux.x86_64] [os.linux.x86_32] [os.osx.x86_64] [os.windows.x86_32]"
+├── build
 │   └── README
 └── config
     ├── development
     │   ├── env.sh
     │   └── settings.json
-    └── production
+    ├── production
+    │   ├── env.sh
+    │   └── settings.json
+    └── staging
         ├── env.sh
         └── settings.json
 
+26 directories, 32 files
 
-26 directories, 30 files
+```
+
+### SSR Example
+
+``` sh
+mjc@Mac ssr-example $ tree
+.
+├── app
+│   ├── client
+│   │   ├── body.html
+│   │   ├── head.html
+│   │   └── main.jsx
+│   ├── imports
+│   │   ├── api
+│   │   ├── startup
+│   │   │   ├── client
+│   │   │   │   └── index.jsx
+│   │   │   ├── lib
+│   │   │   │   ├── index.jsx
+│   │   │   │   ├── routes.jsx  // Routes are available for both server and client.
+│   │   │   │   └── templates.jsx
+│   │   │   └── server
+│   │   │       └── index.jsx
+│   │   └── ui
+│   │       ├── layouts
+│   │       │   └── master-layout
+│   │       │       └── master-layout.jsx
+│   │       ├── pages
+│   │       │   ├── home
+│   │       │   │   └── home.jsx
+│   │       │   └── not-found
+│   │       │       └── not-found.jsx
+│   │       └── test-helpers.jsx
+│   ├── lib
+│   │   └── main.jsx
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── node_modules
+│   ├── packages
+│   ├── private
+│   ├── public
+│   │   └── favicon.ico
+│   └── server
+│       └── main.jsx
+├── bin
+├── build
+│   └── README
+└── config
+    ├── development
+    │   ├── env.sh
+    │   └── settings.json
+    ├── production
+    │   ├── env.sh
+    │   └── settings.json
+    └── staging
+        ├── env.sh
+        └── settings.json
+
+25 directories, 24 files
+
+```
+
+### GraphQL Example
+
+``` sh
+
+mjc@Mac graphql-example $ tree
+.
+├── app
+│   ├── client
+│   │   ├── body.html
+│   │   ├── head.html
+│   │   └── main.jsx
+│   ├── imports
+│   │   ├── api
+│   │   │   └── todos
+│   │   │       ├── fixtures.jsx
+│   │   │       ├── graphql  // GraphQL resource
+│   │   │       │   ├── resolvers.jsx
+│   │   │       │   └── typeDefs.jsx
+│   │   │       ├── methods.jsx
+│   │   │       ├── publications.jsx
+│   │   │       └── todos.jsx
+│   │   ├── startup
+│   │   │   ├── client
+│   │   │   │   ├── index.jsx   // Where the client GraphQL config is.
+│   │   │   │   ├── routes.jsx
+│   │   │   │   └── templates.jsx
+│   │   │   ├── lib
+│   │   │   │   ├── index.jsx
+│   │   │   │   ├── routes.jsx
+│   │   │   │   └── templates.jsx
+│   │   │   └── server
+│   │   │       ├── index.jsx   // Where the server GraphQL config is.
+│   │   │       └── register-todos-api.jsx
+│   │   └── ui
+│   │       ├── layouts
+│   │       │   └── master-layout
+│   │       │       ├── master-layout.css
+│   │       │       └── master-layout.jsx
+│   │       ├── pages
+│   │       │   ├── home
+│   │       │   │   ├── home.css
+│   │       │   │   └── home.jsx
+│   │       │   └── not-found
+│   │       │       ├── not-found.css
+│   │       │       └── not-found.jsx
+│   │       └── test-helpers.jsx
+│   ├── lib
+│   │   └── main.jsx
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── node_modules
+│   ├── packages
+│   ├── private
+│   ├── public
+│   │   └── favicon.ico
+│   └── server
+│       └── main.jsx
+├── bin
+├── build
+│   └── README
+└── config
+    ├── development
+    │   ├── env.sh
+    │   └── settings.json
+    ├── production
+    │   ├── env.sh
+    │   └── settings.json
+    └── staging
+        ├── env.sh
+        └── settings.json
+
+27 directories, 36 files
 
 ```
 
