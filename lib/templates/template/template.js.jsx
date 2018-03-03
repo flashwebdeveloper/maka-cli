@@ -1,6 +1,5 @@
-import React from 'react';<% if (client === 'react') { %>
-import { Component } from 'react';
-import PropTypes from 'prop-types';<% } else if (client === 'reflux') { %><% if ( isStore ) { %>
+<% if (client === 'react') { %>import React, { Component } from 'react';<% } else if (client === 'reflux') { %>
+import React from 'react';<% if ( isStore ) { %>
 import { Store } from 'reflux'; <% } else { %>
 import { Component } from 'reflux';
 import PropTypes from 'prop-types';<% } %><% } %><% if (features.withTracker !== 'false' && !isStore) { %>
