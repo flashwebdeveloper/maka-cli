@@ -1,16 +1,6 @@
-# maka
-###### Subscribe on twitter for latest @maka_cli announcements!
+# maka-cli
 
-### Maka-cli Cookbook?
-I've been off and on working on a cookbook for all the maka-cli apps I've created over the years (because maka-cli allows me to create apps FAST).
-A cookbook with examples ranging from working with Map apps (esri, leaflet, mapbox) to Healthcare HL7 and FHIR apps to React Native and Cordova apps to SSR brochure sites with high SEO to Unity3D + Meteor interactive games to ... well you get the idea.
-
-The cookbook is less to drum up support for MeteorJS (if you're reading this you already know Meteor kicks ass) as it is how to build solid, stable applications that deploy to your clients.  To that end, it's NOT a beginner or intermediate book for new Meteor developers (although new users should have no problem following along), rather advanced and specific methods to develop specialized and deliverable applications.
-
-Getting to the point, I'd be more interested in completing this cookbook with DONATIONS. (Those that donate, get a free copy when it's released).
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CQ2NZZELXC292)
-
-Meteor Apps Kick Ass! (maka) 
+## Meteor Apps Kick Ass! (maka) 
 
 Maka is a command line scaffolding tool for Meteor applications with options for Server Side Rendering (SSR), GraphQL using Apollo, theme's by Material-UI (next), Tests with Jasmine, documentation with JSDocs and much more.
 
@@ -579,6 +569,15 @@ mjc@Mac graphql-example $ tree
 27 directories, 36 files
 
 ```
+
+### Maka-cli Cookbook?
+I've been off and on working on a cookbook for all the maka-cli apps I've created over the years (because maka-cli allows me to create apps FAST).
+A cookbook with examples ranging from working with Map apps (esri, leaflet, mapbox) to Healthcare HL7 and FHIR apps to React Native and Cordova apps to SSR brochure sites with high SEO to Unity3D + Meteor interactive games to ... well you get the idea.
+
+The cookbook is less to drum up support for MeteorJS (if you're reading this you already know Meteor kicks ass) as it is how to build solid, stable applications that deploy to your clients.  To that end, it's NOT a beginner or intermediate book for new Meteor developers (although new users should have no problem following along), rather advanced and specific methods to develop specialized and deliverable applications.
+
+Getting to the point, I'd be more interested in completing this cookbook with DONATIONS. (Those that donate, get a free copy when it's released).
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CQ2NZZELXC292)
 
 
 ## License
