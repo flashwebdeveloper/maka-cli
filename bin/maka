@@ -4,7 +4,7 @@ var Fiber = require('fibers');
 var argv = require('minimist')(process.argv.slice(2));
 var args = argv._;
 var Maka = require('../lib/maka.js');
-var updateNotifier = require('update-notifier');
+var updateNotifier = require('cli-notifier');
 var pkg = require('../package.json');
 
 var notifyOptions = {
